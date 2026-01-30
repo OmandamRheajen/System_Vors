@@ -75,7 +75,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jButton1))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,14 +86,26 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 141, 220));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 120, 180));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 82, -1, -1));
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 182, -1));
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 182, -1));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 182, 20));
+
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 182, 30));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 182, 30));
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 182, 30));
 
         jButton6.setBackground(new java.awt.Color(255, 153, 51));
         jButton6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -103,11 +115,11 @@ public class Register extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 240, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 240, -1));
 
         jButton7.setBackground(new java.awt.Color(51, 153, 255));
         jButton7.setText("Cancel");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(204, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -141,6 +153,14 @@ try {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
