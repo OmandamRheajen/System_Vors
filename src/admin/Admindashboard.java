@@ -1,5 +1,8 @@
 package admin;
 
+import config.Session;
+import javax.swing.JOptionPane;
+import main.login;
 
 public class Admindashboard extends javax.swing.JFrame {
     private String id, name, email, status;
@@ -7,11 +10,17 @@ public class Admindashboard extends javax.swing.JFrame {
 
     
 public Admindashboard(String id, String name, String email, String status) {
+    if (Session.getInstance().getUid() == null) {
+        JOptionPane.showMessageDialog(null, "Login first!");
+        new login().setVisible(true);
+        this.dispose();
+    } else {
     initComponents();
     this.id = id;
     this.name = name;
     this.email = email;
     this.status = status;
+    }
 }
 
    
@@ -79,6 +88,11 @@ public Admindashboard(String id, String name, String email, String status) {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 90, 80));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/set1.png"))); // NOI18N
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -108,6 +122,10 @@ public Admindashboard(String id, String name, String email, String status) {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
