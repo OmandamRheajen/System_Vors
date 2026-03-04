@@ -4,22 +4,24 @@ import config.Session;
 import javax.swing.JOptionPane;
 import main.login;
 
+
 public class Admindashboard extends javax.swing.JFrame {
-    private String id, name, email, status;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Admindashboard.class.getName());
+    String id, name, email, status;
+ 
+
 
     
-public Admindashboard(String id, String name, String email, String status) {
+public Admindashboard(String uId, String uName, String uEmail, String uStatus) {
     if (Session.getInstance().getUid() == null) {
         JOptionPane.showMessageDialog(null, "Login first!");
         new login().setVisible(true);
         this.dispose();
     } else {
-    initComponents();
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.status = status;
+        initComponents(); 
+        this.id = uId;
+        this.name = uName;
+        this.email = uEmail;
+        this.status = uStatus;
     }
 }
 
@@ -108,9 +110,10 @@ public Admindashboard(String id, String name, String email, String status) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Userpage uf = new Userpage();
-        uf.setVisible(true);
-        this.dispose();
+
+    admin.UserTable userWindow = new admin.UserTable(this.id, this.name, this.email, this.status);
+    userWindow.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

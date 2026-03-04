@@ -6,11 +6,9 @@ import net.proteanit.sql.DbUtils;
 
 public class config {
     
-    
     public static Connection connectDB() {
         try {
             Class.forName("org.sqlite.JDBC");
-            
             return DriverManager.getConnection("jdbc:sqlite:db.db");
         } catch (Exception e) {
             System.out.println("Connection Error: " + e.getMessage());
@@ -18,17 +16,27 @@ public class config {
         }
     }
 
-    
     public void displayData(String sql, JTable table) {
         try (Connection conn = connectDB();
              PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
-            
-           
             table.setModel(DbUtils.resultSetToTableModel(rs));
-            
         } catch (SQLException e) {
             System.out.println("Query Error: " + e.getMessage());
+        }
+    }
+
+
+    public int executeUpdate(String sql, Object... params) {
+        try (Connection conn = connectDB();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; i++) {
+                pst.setObject(i + 1, params[i]);
+            }
+            return pst.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update Error: " + e.getMessage());
+            return 0;
         }
     }
 }
